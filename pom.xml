@@ -52,8 +52,91 @@
     <build>
         <finalName>web-parent</finalName>
         <pluginManagement>
-
-
+            <plugins>
+                <!-- 项目范围级别 compiler 全局配置
+                               compiler:compile 目标将去编译java代码以及main/resources目录下的资源文件
+                           -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                        <!-- 声明代码使用什么JDK 版本进行编译 -->
+                        <source>${maven.compiler.source}</source>
+                        <!-- 声明编译后的代码将运行在哪个JDK版本 -->
+                        <target>${maven.compiler.target}</target>
+                        <!-- 设置编译插件在编译期间使用的JDK版本 -->
+                        <fork>true</fork> <!-- fork = true 让compilerVersion 属性生效。
+                        compilerVersion 属性设置编译器使用的jdk版本 executable 设置使用的jdk路径
+                    -->
+                        <compilerVersion>${maven.compiler.source}</compilerVersion>
+                        <!--<executable>${JAVA8_HOME}/bin/javac</executable>-->
+                        <!-- 从 3.0后的编译插件，maven默认使用的编译器 是 javax.tools.JavaCompiler
+                            如果你想强制让这个插件使用javac 设置属性 forceJavacCompilerUse =true 即可。
+                         -->
+                        <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                    </configuration>
+                </plugin>
+                <!--
+              maven 项目构建生成 eclipse java web 项目相关的工程配置文件
+              Eclipse project
+                那个组件需要生产eclipse相关的web 工程配置文件即可使用这个插件
+               -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-eclipse-plugin</artifactId>
+                    <version>2.9</version>
+                    <configuration>
+                        <!-- Always download and attach dependencies source code -->
+                        <downloadSources>true</downloadSources>
+                        <downloadJavadocs>false</downloadJavadocs>
+                        <!-- Avoid type mvn eclipse:eclipse -Dwtpversion=2.0 为了避免设置参数   Dwtpversion -->
+                        <wtpversion>2.0</wtpversion>
+                    </configuration>
+                </plugin>
+                <!-- 配置一个产生源码 jar 包的 插件，绑定到verify 阶段执行这个目标 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <!-- 这里是插件全局配置 -->
+                    <configuration>
+                        <attach>true</attach>
+                        <!-- 配置是否将配置文件去除（true）,false 不去除 -->
+                        <excludeResources>false</excludeResources>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-source</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                            <!-- 插件任务配置 -->
+                            <configuration>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- 配置打包过程中跳过测试插件， -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.19.1</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+                <!-- 声明使用UTF-8编码去处理资源文件 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
         </pluginManagement>
     </build>
 </project>
