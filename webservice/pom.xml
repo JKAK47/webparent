@@ -5,7 +5,7 @@
     <parent>
         <artifactId>web-parent</artifactId>
         <groupId>org.vincent.web</groupId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${build.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -126,6 +126,10 @@
                     </executions>
                 </plugin>
                 <!-- service 配置一个可执行  jar 包 入口 结束 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                </plugin>
             </plugins>
     </build>
 </project>
