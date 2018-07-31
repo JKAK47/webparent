@@ -6,7 +6,7 @@
 
     <groupId>org.vincent.web</groupId>
     <artifactId>web-parent</artifactId>
-    <version>${build.version}</version>
+    <version>${project.build.version}</version>
     <modules>
         <module>webfacade</module>
         <module>webservice</module>
@@ -17,7 +17,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <build.version>1.0.0-SNAPSHOT</build.version>
+        <project.build.version>1.0.0-SNAPSHOT</project.build.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -146,7 +146,8 @@
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.0.0</version>
                     <!-- 配置 clean 失败后是否还能继续执行其他命令
-                        failOnError = false  忽略错误
+                        failOnError = false  忽略错误继续执行
+                        failOnError = true  报错不继续执行
                       -->
                     <configuration>
                         <failOnError>true</failOnError>
