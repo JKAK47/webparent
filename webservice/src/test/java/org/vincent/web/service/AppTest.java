@@ -15,6 +15,7 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
+         System.out.println(System.getProperty("user.home"));
         assertTrue( true );
     }
 }
