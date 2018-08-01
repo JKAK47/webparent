@@ -1,4 +1,4 @@
-package org.vincent.web;
+package org.vincent.web.front;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;

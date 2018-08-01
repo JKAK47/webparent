@@ -41,6 +41,12 @@
                 <version>1.3</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <scope>test</scope>
+                <version>${spring.version}</version>
+            </dependency>
             <!-- test unit end -->
 
             <!-- spring basic lib begin -->
@@ -84,7 +90,19 @@
                 <artifactId>spring-instrument</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
             <!-- spring basic lib stop -->
+
+
             <!-- common lib begin-->
             <dependency>
                 <groupId>commons-logging</groupId>

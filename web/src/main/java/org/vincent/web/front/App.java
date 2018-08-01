@@ -1,4 +1,4 @@
-package org.vincent.web;
+package org.vincent.web.front;
 /**
  * Created by PengRong on 2018/7/18.
  */
