@@ -13,12 +13,7 @@
     <groupId>org.vincent.web</groupId>
     <artifactId>web-parent</artifactId>
     <version>${project.build.version}</version>
-    <modules>
-        <module>webfacade</module>
-        <module>webservice</module>
-        <module>web</module>
-        <module>webdao</module>
-    </modules>
+
     <packaging>pom</packaging>
     <name>web parent项目父级项目，管理各种子Module</name>
     <url>http://maven.apache.org</url>
@@ -218,4 +213,11 @@
             </plugins>
         </pluginManagement>
     </build>
+    <!-- 聚合子模块 -->
+    <modules>
+        <module>webfacade</module>
+        <module>webservice</module>
+        <module>web</module>
+        <module>webdao</module>
+    </modules>
 </project>
