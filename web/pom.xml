@@ -65,6 +65,13 @@
             <version>2.2</version>
             <scope>provided</scope>
         </dependency>
+        <!-- JSTL begin -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- JSTL stop -->
         <!-- 导入java ee jar 包
             这个包是什么功能的? 不用引用也是可以的，web 应用还是可以起来的。
             如果你添加进来必须引用 7.0 版本
@@ -75,13 +82,6 @@
             <version>7.0</version>
         </dependency>-->
         <!-- 导入java ee jar 包 -->
-        <!-- JSTL begin -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <!-- JSTL stop -->
         <dependency>
             <groupId>taglibs</groupId>
             <artifactId>standard</artifactId>
