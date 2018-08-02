@@ -1,4 +1,4 @@
-package org.vincent.web.facade;
+package org.vincent.web.util.logging;
 
 import java.net.URL;
 import org.apache.log4j.PropertyConfigurator;
@@ -7,16 +7,15 @@ import org.slf4j.Logger;
 /**
  * log4j + slf4j 统一 日志接口
  * web facade组件系统日志组件
- *
- * @Package: org.vincent.web.facade <br/>
+ * @Package: org.vincent.web.service.logging <br/>
  * @Description： TODO <br/>
  * @author: PengRong <br/>
- * @Date: Created in 2018/8/1 7:55 <br/>
+ * @Date: Created in 2018/8/3 0:15 <br/>
  * @Company: PLCC <br/>
  * @Copyright: Copyright (c) 2018 <br/>
  * @Version: 1.0 <br/>
  * @Modified By: <br/>
- * @Created by PengRong on 2018/8/1. <br/>
+ * @Created by PengRong on 2018/8/3. <br/>
  */
 
 public class LoggerFactory {
@@ -24,6 +23,7 @@ public class LoggerFactory {
 		private static Logger logger = null;
 
 		private LoggerFactory() {
+
 		}
 
 		public static Logger getLogger() {
@@ -38,8 +38,9 @@ public class LoggerFactory {
 								}
 						}
 				}
-				return LoggerFactory.logger;
+				return logger;
 		}
 
 }
+
 

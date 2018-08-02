@@ -23,11 +23,12 @@
     </properties>
 
     <dependencies>
-        <dependency>
+        <!-- webdao 模块是和facade 模块平行的，不应该依赖它 -->
+        <!--<dependency>
             <groupId>org.vincent.web</groupId>
             <artifactId>web-facade</artifactId>
             <version>${project.build.version}</version>
-        </dependency>
+        </dependency>-->
         <!-- junit begin -->
         <dependency>
             <groupId>junit</groupId>
