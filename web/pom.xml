@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <tomcat.basedir>D:\Dev\Tomcat\apache-tomcat-7.0.67</tomcat.basedir>
+        <tomcat.basedir>D:\Dev\tomcat\apache-tomcat-7.0.54</tomcat.basedir>
     </properties>
 
     <dependencies>
@@ -41,9 +41,9 @@
             <groupId>org.vincent.web</groupId>
             <artifactId>web-facade</artifactId>
             <version>${project.build.version}</version>
-
         </dependency>
-        <!-- Servlet begin ,servlet runtime  -->
+
+        <!-- Servlet begin ,servlet3 runtime  -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -51,8 +51,8 @@
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>3.0.1</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -66,7 +66,7 @@
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
         </dependency>
-        <!-- Servlet end -->
+        <!-- Servlet3 end -->
         <!-- 导入java ee jar 包 -->
         <dependency>
             <groupId>javax</groupId>
@@ -110,33 +110,33 @@
                 从 http://localhost:8080/web 启动服务并能访问index.jsp网页
                 启动时候回报找不到  web-service 组件
             -->
-            <plugin>
+           <!-- <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <path>/web</path>
+                    <path>/web-front</path>
                 </configuration>
-            </plugin>
+            </plugin>-->
 
             <!--
                 第二种方法
                 cargo-maven2-plugin 插件可以使用本地安装的tomcat版本也可以进行 tomcat启动
             -->
-            <!--<plugin>
+            <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
                 <version>1.2.3</version>
                 <configuration>
                     <container>
-                        &lt;!&ndash; 指明使用的tomcat服务器版本 &ndash;&gt;
+                        <!-- 指明使用的tomcat服务器版本 -->
                         <containerId>tomcat7x</containerId>
-                        &lt;!&ndash;指明tomcat服务器的安装目录 &ndash;&gt;
+                        <!--指明tomcat服务器的安装目录 -->
                         <home>${tomcat.basedir}</home>
                     </container>
                     <configuration>
                         <type>existing</type>
-                        &lt;!&ndash;指明tomcat服务器的安装目录 &ndash;&gt;
+                        <!--指明tomcat服务器的安装目录 -->
                         <home>${tomcat.basedir}</home>
                     </configuration>
                 </configuration>
@@ -149,7 +149,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
 
             <!-- 第三种插件 启动web
                  mvn jetty:run 启动web项目
