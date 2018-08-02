@@ -12,7 +12,7 @@
     <artifactId>web</artifactId>
     <packaging>war</packaging>
 
-    <name>web 项目前端实现 </name>
+    <name>web 项目前端实现</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -21,6 +21,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <tomcat.basedir>D:\Dev\tomcat\apache-tomcat-7.0.54</tomcat.basedir>
+        <finalName>web-front</finalName>
     </properties>
 
     <dependencies>
@@ -37,22 +38,19 @@
         <!--
             当前端 web 组件 改成了分布式后即可改为 依赖 web-facade ，现在是单个项目，依赖具体实现web-service。
         -->
-        <dependency>
-            <groupId>org.vincent.web</groupId>
-            <artifactId>web-facade</artifactId>
-            <version>${project.build.version}</version>
-        </dependency>
+         <dependency>
+             <groupId>org.vincent.web</groupId>
+             <artifactId>web-facade</artifactId>
+             <version>${project.build.version}</version>
+         </dependency>
 
-        <!-- Servlet begin ,servlet3 runtime  -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
+        <!-- Servlet3.0 begin ,servlet3.0
+          tomcat 7.x/Java EE 6 === >> Servlet 3.0 , JSP 2.2, EL 2.2 , WebSocket 1.1 Spec.
+         runtime  -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -62,22 +60,39 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>2.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- 导入java ee jar 包
+            这个包是什么功能的? 不用引用也是可以的，web 应用还是可以起来的。
+            如果你添加进来必须引用 7.0 版本
+         -->
+       <!-- <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>-->
+        <!-- 导入java ee jar 包 -->
+        <!-- JSTL begin -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- JSTL stop -->
+        <dependency>
             <groupId>taglibs</groupId>
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
         </dependency>
         <!-- Servlet3 end -->
-        <!-- 导入java ee jar 包 -->
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-        </dependency>
-        <!-- 导入java ee jar 包 -->
+
     </dependencies>
 
     <build>
-        <finalName>web-front</finalName>
+        <finalName>${finalName}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -110,14 +125,14 @@
                 从 http://localhost:8080/web 启动服务并能访问index.jsp网页
                 启动时候回报找不到  web-service 组件
             -->
-           <!-- <plugin>
+            <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <path>/web-front</path>
+                    <path>/${finalName}</path>
                 </configuration>
-            </plugin>-->
+            </plugin>
 
             <!--
                 第二种方法
