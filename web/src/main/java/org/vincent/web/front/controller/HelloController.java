@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by PengRong on 2018/8/6.
+ * 这个controller 处理的jsp 是 /pages/hello.jsp,传递数据给hello.jsp 视图文件
  */
 @Controller
 public class HelloController {
