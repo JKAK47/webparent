@@ -8,8 +8,8 @@
  taglib
 
  --%>
-
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8"
+<%-- jsp 指令元素命令 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"
     import="java.util.*"
 %>
 
@@ -19,10 +19,45 @@
 </head>
 
 <body>
-    <jsp:include page="child.jsp"/>
+    <%-- JSP 指令元素 include 指令  --%>
+    <%--<jsp:include page="child.jsp"/>--%>
+    <%@ include file="child.jsp"%>
+    <p3>主机地址：</p3>
+    <%-- jsp 表达式，只能写一行表达式 --%>
+    <%=
+    request.getRemoteHost()
+
+    %>
+    <%-- JSP 表达式 XML 形式 --%>
+    <jsp:expression>
+        request.getRemoteHost()
+    </jsp:expression>
+
+    <%--
+        JSP 小脚本，即可以写入多行java 代码，java代码块
+     --%>
     <%
         Date date=new Date();
         out.print("Current Data : "+ date);
+    %>
+    <% if(Math.random() < 0.5) {  int count=0; %>
+        <p4>Hava a <B>nice</B> day.</p4>
+    <% } else  { %>
+        <p4>Have a <B>lousy</B> day.</p4>
+    <% } %>
+
+    <%-- JSP 声明
+        可以定义变量和方法，并通过JSP表达式调用方法，输出方法执行结果。
+     --%>
+    <%!
+        String color[]={"red","blue","green"};
+        public  String getColor(int i){
+        		return  color[i];
+        }
+    %>
+    <%-- JSP表达式 调用函数并输出结果 --%>
+    <%=
+    getColor((int) Math.floor(Math.random()*3))
     %>
     <h2>Hello World! Web. </h2>
     <h3>JSP页面组成 JSP2.2 Spec</h3>
