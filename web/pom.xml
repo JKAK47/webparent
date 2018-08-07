@@ -26,14 +26,20 @@
 
     <dependencies>
         <!-- unit test begin-->
+        <!-- junit begin -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-core</artifactId>
         </dependency>
+        <!-- junit stop  -->
         <!-- unit test stop -->
         <!--
             当前端 web 组件 改成了分布式后即可改为 依赖 web-facade ，现在是单个项目，依赖具体实现web-service。
@@ -104,7 +110,6 @@
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

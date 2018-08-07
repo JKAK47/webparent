@@ -24,14 +24,26 @@
 
     <!-- 视图处理器 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/pages/" />
+        <!-- 前缀 表示资源基目录
+            后缀 表示资源文件类型
+         -->
+        <property name="prefix" value="/WEB-INF/view/" />
         <property name="suffix" value=".jsp" />
     </bean>
+
+    <!-- 手动配置 Controller -->
+    <!-- 配置一个Handle 处理info 请求的 控制器。 -->
+    <bean name="/info" class="org.vincent.web.front.controller.InfoController"/>
+    <!-- 需要handle bean 配置name属性，设置处理映射器将Handle bean 的name属性作为url进行查找。 -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+    <!-- 处理器适配器，所有处理器适配器都需要实现的HandlerAdapter接口。 -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
 
     <!-- 激活基于注解的配置 @RequestMapping, @ExceptionHandler,数据绑定 ,@NumberFormat ,
     @DateTimeFormat ,@Controller ,@Valid ,@RequestBody ,@ResponseBody等  -->
     <mvc:annotation-driven />
-
+    <!-- 访问静态资源 -->
+    <mvc:default-servlet-handler />
     <!-- use handle the static resource -->
     <mvc:resources mapping="/static/**" location="/static/" />
     <!--<mvc:resources mapping="/*.html" 	location="/" />
