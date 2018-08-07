@@ -118,6 +118,17 @@
             <version>${log4j.version}</version>
         </dependency>
         <!-- log4j + slf4j   lib  stop -->
+
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-core
+            alibaba sentinel 流控，熔断降级组件
+         -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-core</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

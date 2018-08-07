@@ -125,7 +125,7 @@
     </dependencies>
 
     <build>
-        <finalName>web-dao</finalName>
+
         <plugins>
         <!-- 公共插件 配置开始-->
         <plugin>
