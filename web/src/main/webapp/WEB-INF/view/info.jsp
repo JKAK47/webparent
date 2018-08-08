@@ -11,6 +11,7 @@
     <title>info msg</title>
 </head>
 <body>
+<%-- 访问controller 传递进来的 msg. --%>
 ${requestScope.msg}
 </body>
 </html>
