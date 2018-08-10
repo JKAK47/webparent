@@ -13,19 +13,32 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class HelloController {
+    /**
+     * @RequestMapping 注解用于映射一个请求到该注解所注解的方法。
+     *  http://localhost:8080/web-front/ 首页请求响应
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
 
-        model.addAttribute("message", "Spring 3 MVC Hello World");
+        model.addAttribute("msg", "Spring 3 MVC Hello World");
+        //返回默认视图名称
         return "hello";
 
     }
 
     @RequestMapping(value = "/hello/{name:.+}", method = RequestMethod.GET)
     public ModelAndView hello(@PathVariable("name") String name) {
-
+        /**
+         * 设置一个视图和 模型的ModelAndView 对象。
+         */
         ModelAndView model = new ModelAndView();
+		    /* 设置一个jsp视图名称 */
         model.setViewName("hello");
+        /* 设置属性 在jsp页面通过
+         *  ${requestScope.msg} 获取值
+          * */
         model.addObject("msg", name);
 
         return model;

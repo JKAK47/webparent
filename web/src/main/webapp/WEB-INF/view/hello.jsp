@@ -31,6 +31,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1>${title}</h1>
+        <h3>${requestScope.msg}</h3>
         <p>
             <c:if test="${not empty name}">
                 Hello ${name}
@@ -74,7 +75,7 @@
 
     <hr>
     <footer>
-        <p>© Mkyong.com 2015</p>
+        <p>© PengRong.com 2018</p>
     </footer>
 </div>
 

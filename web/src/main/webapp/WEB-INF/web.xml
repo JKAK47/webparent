@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Servlet 3.0 版本 JSP 2.2, EL 2.2  -->
+<!-- 该web  项目基于  Servlet 3.0 版本 JSP 2.2, EL 2.2 。
+    web.xml中配置的执行顺序：
+    listener>filter>servlet，而同一种配置片段则按照从上到下的顺序执行。
+
+ -->
 <web-app
         xmlns="http://java.sun.com/xml/ns/javaee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

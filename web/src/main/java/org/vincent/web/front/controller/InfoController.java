@@ -36,6 +36,7 @@ public class InfoController implements Controller {
 		public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 				logger.info(" infoController handleRequest method invoke.");
 				ModelAndView view=new ModelAndView();
+				/** 设置模型数据，可以是任意的POJO对象 */
 				view.addObject("msg","info msg: "+ request.getMethod().toString()+"\t"+request.getRemoteHost());
 				/* 视图处理器已经配置了前缀和后缀，就只需要配置访问的 */
 				view.setViewName("info");
