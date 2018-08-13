@@ -30,7 +30,24 @@
     <!-- 基于注解的处理映射器，根据请求查找映射 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
     <!-- 基于注解的处理适配器。 完成对@RequestMapping 注解方法的调用 -->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <!--json视图拦截器，读取到注解@ResponseBody的时候去配置它-->
+                <ref bean="mappingJacksonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <!--json转化器，它可以将结果转化从JavaBean 转为JSON 字符串  -->
+    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/json;charset=UTF-8</value>
+                <!-- 为啥用字符串常量不行呢？ -->
+                <!--<value>APPLICATION_JSON_UTF8_VALUE</value>-->
+            </list>
+        </property>
+    </bean>
 
     <!-- 视图处理器 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

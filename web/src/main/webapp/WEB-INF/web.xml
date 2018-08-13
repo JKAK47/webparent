@@ -11,7 +11,7 @@
         version="3.0">
   <display-name>web 前端显示组件</display-name>
   <description> web HelloWorld</description>
-  <!-- 前端控制器 -->
+  <!-- Spring MVC 前端控制器  Begin -->
   <servlet>
       <!-- Servlet 的名称 -->
     <servlet-name>springmvc</servlet-name>
@@ -40,4 +40,6 @@
      <!-- / 表示将当前所有的 URL映射到这个Servlet。 -->
    <url-pattern>/</url-pattern>
  </servlet-mapping>
+
+    <!-- Spring MVC 前端控制器  stop -->
 </web-app>
