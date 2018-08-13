@@ -9,7 +9,8 @@ import java.io.*;
 
 /**
  * Created by PengRong on 2018/8/13.
- *
+ * http://www.cnblogs.com/shirui/p/9408380.html
+ * https://www.mkyong.com/java/jaxb-hello-world-example/
  * @author PengRong
  *         基于JDK提供的 JAXB 库 基于注解进行xml 和JavaBean 之间 转换
  */
@@ -19,7 +20,7 @@ public class JAXBUtils {
      * 将XML 文件内容解析并映射到对应的JavaBean 并返回 </p>
      *
      * @param classT   解析Xml 映射到对应的javaBean类 Class 文件。</p>
-     * @param filepath 需要解析的xml文件</p>
+     * @param filepath 需要解析的xml文件, 必须给绝对路径 </p>
      * @param <T></p>
      * @return T </p>
      * @author PengRong </p>
@@ -38,8 +39,8 @@ public class JAXBUtils {
     /**
      * 将JavaBean 数据转成XML 存储
      *
-     * @param data
-     * @param filepath
+     * @param data 需要保持的javaBean 数据 </p>
+     * @param filepath  将这个JavaBean 数据存放的xml文件绝对路径。
      * @throws JAXBException
      */
     public static void Marshaller(Object data, String filepath) throws JAXBException {

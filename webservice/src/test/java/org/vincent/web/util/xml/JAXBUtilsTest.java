@@ -35,8 +35,10 @@ public class JAXBUtilsTest
         customer.setCustomerAge(35);
         customer.setId("124569");
         customer.setName("GAGA");
+        /** test类的  /D:/Dev/WorkStation/IdeaProjects/webparent/webservice/target/test-classes/*/
+        System.out.println(ClassLoader.getSystemClassLoader().getResource("").getFile());
         URL url =ClassLoader.getSystemClassLoader().getResource("test/customer-outpupt.xml");
-
+        System.out.println(url.getFile());
         JAXBUtils.Marshaller(customer,url.getFile());
     }
 
