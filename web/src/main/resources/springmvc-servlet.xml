@@ -38,7 +38,9 @@
             </list>
         </property>
     </bean>
-    <!--json转化器，它可以将结果转化从JavaBean 转为JSON 字符串  -->
+    <!--json转化器，它可以将结果转化从JavaBean 转为JSON 字符串
+      用于处理响应结果返回json字符串时候使用
+      -->
     <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>

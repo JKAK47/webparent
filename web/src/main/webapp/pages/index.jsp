@@ -13,6 +13,10 @@
     import="java.util.*"
 %>
 
+<!--
+webapp/pages/index.jsp
+-->
+
 <html>
 <head>
     <title>helloworld </title>
