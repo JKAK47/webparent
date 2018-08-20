@@ -13,7 +13,7 @@ public class login2Controller {
     @ModelAttribute
     public void userMode2(String loginname,String password,
                           ModelMap mv){
-        System.out.println("-------------userMode----------");
+        System.out.println("-------------userMode---.-------");
         User user = new User();
         user.setLoginname(loginname);
         user.setPassword(password);

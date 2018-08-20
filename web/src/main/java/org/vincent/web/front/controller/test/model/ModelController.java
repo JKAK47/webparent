@@ -39,6 +39,8 @@ public class ModelController {
 
 
     /**
+     * model.jsp 跳转到三个jsp 页面的跳转逻辑 controller 。
+     *
      * loginModel1.jsp页面 controller 处理请求函数
      * @return
      */
