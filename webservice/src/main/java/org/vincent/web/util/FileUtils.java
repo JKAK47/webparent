@@ -46,7 +46,8 @@ public class FileUtils {
 
 		/**
 		 * 根据一个file 实例，代表一个抽象的目录字符串，抽象路径字符串必须是绝对路径。
-		 * 这个字符串可能代表一个目录，可能代表一个文件的路径字符串，其中的目录，最后的文件不存在，这个方法是把不存在的目录和文件创建成功。
+		 * 这个字符串可能代表一个目录，可能代表一个文件的路径字符串；
+		 * 其中的目录，可能一些文件夹不存在，这个方法是把不存在的目录和文件创建成功。
 		 *
 		 * @param file 虚拟字符串创建的file 实例
 		 */
@@ -56,8 +57,9 @@ public class FileUtils {
 						String filepath = file.getCanonicalPath();
 						if (filepath.substring(filepath.length() - 1).equalsIgnoreCase(File.separator)) {
 								filepath = filepath.substring(0, filepath.length() - 1);
+								file=new File(filepath);
 						}
-						file=new File(filepath);
+
 						//判定当前file表示的抽象字符串是否是文件还是文件夹，根据目录最后的文件或文件夹名称是否有点
 						String name = file.getName();
 						//是文件
