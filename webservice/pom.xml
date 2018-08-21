@@ -129,6 +129,14 @@
             <version>0.1.0</version>
         </dependency>
 
+
+        <!-- Disruptor 并发编程框架 begin -->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+        <!-- Disruptor 并发编程框架 stop -->
     </dependencies>
 
     <build>
