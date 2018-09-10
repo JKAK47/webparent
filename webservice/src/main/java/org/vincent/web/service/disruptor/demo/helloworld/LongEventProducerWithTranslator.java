@@ -7,7 +7,8 @@ import java.nio.ByteBuffer;
 /**
  * @Package: org.vincent.web.service.disruptor.demo.helloworld <br/>
  * @Description： Disruptor 3.0 之后 dirruptor封装了一些接口出来，只要实现对应的接口，
- * 定义了Event 需要处理的时间逻辑，然后传递给RingBuffer即可。具体的发布事情有RingBuffer处理了 <br/>
+ * 定义了Event 需要处理的代码逻辑，然后传递给RingBuffer即可。具体的发布事件由RingBuffer处理了 <br/>
+ * 这里只是创建了 实现 EventTranslatorOneArg 接口的接口类，一般不会这样用，会直接用一个lambda表达式实现 EventTranslatorOneArg 接口，实现数据组装。
  * @author: PengRong <br/>
  * @Date: Created in 2018/8/20 21:27 <br/>
  * @Company: PLCC <br/>

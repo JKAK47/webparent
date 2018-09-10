@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 
 /**
  * @Package: org.vincent.web.service.disruptor.demo.helloworld <br/>
- * @Description： TODO <br/>
+ * @Description： 因为方法也是lambda表达式的一种，方法名可以直接赋值给注册事件响应方法,但是方法签名必须和lambda实现的接口签名一致。 <br/>
  * @author: PengRong <br/>
  * @Date: Created in 2018/8/21 0:40 <br/>
  * @Company: PLCC <br/>
@@ -19,7 +19,7 @@ import java.util.concurrent.Executors;
  */
 
 public class LongEventMain {
-		public static void handleEvent(LongEvent event, long sequence, boolean endOfBatch)
+		public static void handleEvent(LongEvent event, long sequence,boolean endOfBatch)
 		{
 				System.out.println(event);
 		}
@@ -40,7 +40,7 @@ public class LongEventMain {
 				// Construct the Disruptor
 				Disruptor<LongEvent> disruptor = new Disruptor<>(LongEvent::new, bufferSize, executor);
 
-				// Connect the handler
+				// Connect the handler， 通过lambda 表达式将定义的事件响应方法注册进去
 				disruptor.handleEventsWith(LongEventMain::handleEvent);
 
 				// Start the Disruptor, starts all threads running
@@ -53,6 +53,7 @@ public class LongEventMain {
 				for (long l = 0; true; l++)
 				{
 						bb.putLong(0, l);
+						//定义将发布使用的translate, 实现的接口是：EventTranslatorOneArg
 						ringBuffer.publishEvent(LongEventMain::translate, bb);
 						Thread.sleep(1000);
 				}

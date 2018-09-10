@@ -26,18 +26,18 @@ public class LongEventProducer {
 		/**
 		 *  onData用来发布事件，每调用一次就发布一次事件事件
 		 * 它的参数会通过事件传递给消费者。这个事件发布接口必须有程序员根据情况
-		 * 调用触发这个接口执行。
+		 * 调用触发这个接口执行。 <p/>
 		 *
-		 * 发布事件最少涉及两个步骤：
-		 *      1、获取下一个事件槽
+		 * 发布事件最少涉及两个步骤： <p/>
+		 *      1、获取下一个事件槽  <p/>
 		 *      2、使用 ringBuffer.publish(sequence) 发布事件。如果我们使用RingBuffer.next()获取一个事件槽，那么一定要发布对应的事件，同时发布方法
-		 *          使用try/finally代码块是必要的如下。
-		 *      0、Disruptor 3.0 版本后推荐使用 Lambda-style 风格的API, 使用 Event Publisher或者Event Translator来发布事件。
+		 *          使用try/finally代码块是必要的如下。 <p/>
+		 *      0、Disruptor 3.0 版本后推荐使用 Lambda-style 风格的API, 使用 Event Publisher或者Event Translator来发布事件减少可能的失误。 <p/>
 		 * @param bb
 		 */
 		public void onData(ByteBuffer bb)
 		{
-				/** 可以把ringBuffer看做一个事件队列，那么next就是得到下面一个事件槽*/
+				/** 可以把ringBuffer看做一个事件队列，那么next就是得到下面一个事件槽，缓存发布的事件数据。*/
 				// Grab the next sequence
 				long sequence = ringBuffer.next();
 				try
@@ -49,7 +49,7 @@ public class LongEventProducer {
 				}
 				finally
 				{
-						//发布事件
+						//发布事件，必须放在finally中确保一定被执行到。
 						ringBuffer.publish(sequence);
 				}
 		}
