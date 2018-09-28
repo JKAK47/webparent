@@ -9,7 +9,9 @@ import org.springframework.web.servlet.mvc.Controller;
 
 /**
  * @Package: org.vincent.web.front.controller <br/>
- * @Description： TODO <br/>
+ * @Description： 基于继承 Controller 接口处理 HTTP 请求并返回 ModelAndView 对象，
+ * 该controller 在 springmvc-servlet.xml文件中定义了处理url路径 <br/>
+ * 可以通过 http://localhost:8080/web-front/info 访问
  * @author: PengRong <br/>
  * @Date: Created in 2018/8/7 8:02 <br/>
  * @Company: PLCC <br/>
