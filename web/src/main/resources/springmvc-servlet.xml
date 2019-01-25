@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Spring Mvc 框架 配置文件
-    Spring Version: 4.3.2
+    Spring Version: 4.3.2.RELEASE
   -->
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"

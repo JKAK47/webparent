@@ -1,5 +1,7 @@
+<%-- 两种注释方式 --%>
 <!-- The Page loading <%= (new java.util.Date()).toString() %> -->          <!-- 會顯示在客戶端網頁上 -->
 <%-- The Page loading <%= (new java.util.Date()).toString() %> --%>         <!-- jsp 編譯為servlet 時候將去除這個注釋 -->
+
 <%-- 有三種指令
 
  page :设置页面内部的多个属性来配置整个jsp页面属性；
